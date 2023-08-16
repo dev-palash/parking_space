@@ -4,6 +4,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderModule } from './components/header/header.module';
 import { FooterModule } from './components/footer/footer.module';
+import { MaterialStoreModule } from './material-store/material-store.module';
 
 
 
@@ -13,11 +14,13 @@ import { FooterModule } from './components/footer/footer.module';
   imports: [
     CommonModule,
     HeaderModule,
-    FooterModule
+    FooterModule,
+    MaterialStoreModule
   ],
   exports: [
     HeaderModule,
-    FooterModule
+    FooterModule,
+    MaterialStoreModule
   ]
 })
 export class CoreModule { }

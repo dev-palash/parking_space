@@ -1,0 +1,23 @@
+<div class="container-fluid">
+<div class="filter_section">
+<div class="email_container">
+  <p class="m-0">Email Search Results</p>
+</div>
+<div class="parking_type">
+  <form>
+    <h4>mat-select</h4>
+    <mat-form-field>
+      <mat-label>Favorite food</mat-label>
+      <mat-select [(ngModel)]="selectedValue" name="food">
+        <mat-option *ngFor="let food of foods" [value]="food.value">
+          {{food.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <p> Selected food: {{selectedValue}} </p>
+  </form>
+</div>
+</div>
+<div class="list_section" (click)="navigate()">
+</div>
+</div>

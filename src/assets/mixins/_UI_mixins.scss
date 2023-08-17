@@ -1,0 +1,13 @@
+@import "../color/colors";
+
+@mixin fontStyle($color, $fontSize, $fontWeight){
+  color: $color;
+  font-size: $fontSize;
+  font-weight: $fontWeight;
+}
+
+@mixin displayFlex($justifyContent, $alignItems) {
+  display: flex;
+  justify-content: $justifyContent;
+  align-items: $alignItems;
+}

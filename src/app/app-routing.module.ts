@@ -9,6 +9,9 @@ const routes: Routes = [
   {
     path: 'park-space',
     loadChildren: () => import('./modules/park-space/park-space.module').then(m => m.ParkSpaceModule)
+  },
+  {
+    path: '', redirectTo: 'auth/signin', pathMatch: 'full'
   }
 ];
 

@@ -1,0 +1,9 @@
+@import "../../../../../assets/mixins/UI_mixins";
+.filter_section{
+  @include displayFlex(space-between, center);
+
+}
+.list_section{
+
+}
+

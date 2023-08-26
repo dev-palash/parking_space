@@ -1,23 +1,80 @@
-<div class="container-fluid">
-<div class="filter_section">
-<div class="email_container">
-  <p class="m-0">Email Search Results</p>
-</div>
-<div class="parking_type">
-  <form>
-    <h4>mat-select</h4>
-    <mat-form-field>
-      <mat-label>Favorite food</mat-label>
-      <mat-select [(ngModel)]="selectedValue" name="food">
-        <mat-option *ngFor="let food of foods" [value]="food.value">
-          {{food.viewValue}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-    <p> Selected food: {{selectedValue}} </p>
-  </form>
-</div>
-</div>
-<div class="list_section" (click)="navigate()">
-</div>
+<div class="">
+  <div class="filter_section">
+    <div class="email_container">
+      <div class="email_inner">
+        <mat-icon>email</mat-icon> <p class="m-0">Email Search Results</p>
+      </div>
+    </div>
+    <div class="sort_container">
+      <div class="parking_type custom_mat_bordered_select_sort">
+          <mat-form-field class="">
+            <mat-label>Filter Parking Types</mat-label>
+            <mat-select class="custom_mat_select" [(ngModel)]="selectedValue" name="food">
+              <mat-option *ngFor="let food of foods" [value]="food.value">
+                {{food.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+      </div>
+      <div class="sort_by custom_mat_bordered_select_sort">
+          <mat-form-field class="">
+            <mat-label>Sort By</mat-label>
+            <mat-select [(ngModel)]="selectedValue" name="food">
+              <mat-option *ngFor="let food of foods" [value]="food.value">
+                {{food.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <div class="sort_result">
+    <p class="m-0"><span>11 places to park available.</span> Your parking dates are popular - 1 place to park is sold out. Book
+      Now!</p>
+  </div>
+  <div class="list_section">
+    <div class="parking_list" *ngFor="let parking of parkingList">
+      <div class="image_and_details">
+        <div class="image">
+          <img [src]="parking.imageUrl" />
+        </div>
+        <div class="details">
+          <div class="name">
+            <p class="m-0"> {{parking.name}} </p>
+          </div>
+          <div class="rating">
+            <div class="stars">
+              <mat-star-rating [rating]="rating" [starCount]="starCount" [color]="starColor"
+                (ratingUpdated)="onRatingChanged($event)"></mat-star-rating>
+            </div>
+            <div class="text">
+              <p class="m-0"><span>Great </span>(958 Ratings)</p>
+            </div>
+          </div>
+          <div class="parking_type">
+            <p class="m-0"><mat-icon> directions_car</mat-icon> Parking Types: Vallete Uncovered</p>
+          </div>
+          <div class="distance">
+            <p class="m-0"><mat-icon>airplanemode_active</mat-icon> 1 miles to JFK</p>
+          </div>
+          <div class="availibity">
+            <p class="m-0"><mat-icon>access_time</mat-icon> open 24/7 </p>
+          </div>
+        </div>
+      </div>
+      <div class="price">
+        <div class="price_value">
+          <div class="number">
+            <p class="m-0"><sup>$</sup>25<sup>99</sup> <sub>per day</sub></p>
+          </div>
+        </div>
+        <div class="btn_price">
+          <button mat-raised-button color="primary">Park Here</button>
+        </div>
+        <div class="cancellation">
+          <p class="m-0"><mat-icon>check</mat-icon> Free Cancellation</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,9 +1,25 @@
 import { Parking } from "../models/parking.model";
-
+import { v4 as uuidv4 } from 'uuid';
 export const parkingData: Parking[] = [
   {
-    id: '1',
-    name: 'demo',
-    imageUrl: 'https://media.istockphoto.com/id/1398462038/photo/online-exam-or-test.jpg?s=1024x1024&w=is&k=20&c=vWUnpuaoOhP--xc0MdCCiT7GyzSjW1Mk7vuegnE9Oh0='
+    id: uuidv4(),
+    name: 'Raddisson Hotel JFK Airport',
+    imageUrl: 'assets/images/radisson.PNG',
+    position: { lat: 28.625485, lng: 79.821091 },
+    draggable: true
+  },
+  {
+    id: uuidv4(),
+    name: 'Raddisson Hotel JFK Airport',
+    imageUrl: 'assets/images/radisson.PNG',
+    position: { lat: 28.625293, lng: 79.817926 },
+    draggable: false
+  },
+  {
+    id: uuidv4(),
+    name: 'Raddisson Hotel JFK Airport',
+    imageUrl: 'assets/images/radisson.PNG',
+    position: { lat: 28.625182, lng: 79.81464 },
+    draggable: true
   }
 ]

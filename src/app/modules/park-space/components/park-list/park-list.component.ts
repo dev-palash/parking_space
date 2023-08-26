@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Parking } from '../../models/parking.model';
 import { DataService } from '../../services/data.service';
 import { Router } from '@angular/router';
+import { StarRatingColor } from 'src/app/shared/components/star-rating/star-rating.component';
 interface Food {
   value: string;
   viewValue: string;
@@ -39,6 +40,18 @@ export class ParkListComponent {
     ) {
     this.parkingList = [...this.dataService.getParkingList()];
   }
+  rating:number = 3;
+  starCount:number = 5;
+  starColor:StarRatingColor = StarRatingColor.accent;
+  starColorP:StarRatingColor = StarRatingColor.primary;
+  starColorW:StarRatingColor = StarRatingColor.warn;
+
+  ngOnInit() {
+  }
+    onRatingChanged(rating: any){
+    this.rating = rating;
+  }
+
   navigate(){
     this.router.navigate(['/auth/signin'])
   }

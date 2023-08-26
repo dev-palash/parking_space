@@ -1,7 +1,7 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
+@import "~leaflet/dist/leaflet.css";
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -21,13 +21,10 @@ $parking_space-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$parking_space-theme: mat.define-light-theme((
-  color: (
-    primary: $parking_space-primary,
-    accent: $parking_space-accent,
-    warn: $parking_space-warn,
-  )
-));
+$parking_space-theme: mat.define-light-theme((color: (primary: $parking_space-primary,
+        accent: $parking_space-accent,
+        warn: $parking_space-warn,
+      )));
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
@@ -35,6 +32,22 @@ $parking_space-theme: mat.define-light-theme((
 @include mat.all-component-themes($parking_space-theme);
 
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+*{
+  font-family: 'Poppins', sans-serif;
+}
+
+::ng-deep mat-icon {
+  height: auto;
+  width: auto;
+  overflow: auto;
+}

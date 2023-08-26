@@ -7,19 +7,23 @@ import { ParkListComponent } from './components/park-list/park-list.component';
 import { CoreModule } from 'src/app/core/core.module';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { LeafletComponent } from './components/leaflet/leaflet.component';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
-    ParkListComponent
+    ParkListComponent,
+    LeafletComponent
   ],
   imports: [
     CommonModule,
     ParkSpaceRoutingModule,
     CoreModule,
     FormsModule,
-    SharedModule
+    SharedModule,
+    LeafletModule
   ]
 })
 export class ParkSpaceModule { }

@@ -1,0 +1,30 @@
+<div class="parking_list">
+  <div class="image_and_details">
+    <div class="image">
+      <img [src]="parking.imageUrl" />
+    </div>
+    <div class="details">
+      <div class="name">
+        <p class="m-0" appHighlighter> {{parking.name}} </p>
+      </div>
+      <div class="rating">
+        <div class="stars">
+          <mat-star-rating [rating]="rating" [starCount]="starCount" [color]="starColor"
+            ></mat-star-rating>
+        </div>
+        <div class="text">
+          <p class="m-0"><span>Great </span>(958 Ratings)</p>
+        </div>
+      </div>
+      <div class="parking_type">
+        <p class="m-0"><mat-icon> directions_car</mat-icon> Parking Types: Vallete Uncovered</p>
+      </div>
+      <div class="distance">
+        <p class="m-0"><mat-icon>airplanemode_active</mat-icon> 1 miles to JFK</p>
+      </div>
+      <div class="availibity">
+        <p class="m-0"><mat-icon>access_time</mat-icon> open 24/7 </p>
+      </div>
+    </div>
+  </div>
+</div>

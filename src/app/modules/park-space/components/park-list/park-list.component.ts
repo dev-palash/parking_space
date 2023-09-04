@@ -51,8 +51,7 @@ export class ParkListComponent {
     onRatingChanged(rating: any){
     this.rating = rating;
   }
-
-  navigate(){
-    this.router.navigate(['/auth/signin'])
+  goToDetails(details: any){
+    this.router.navigate(['park-space/parking-details'], {state: {parking: details}});
   }
 }

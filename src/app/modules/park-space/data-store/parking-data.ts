@@ -10,15 +10,15 @@ export const parkingData: Parking[] = [
   },
   {
     id: uuidv4(),
-    name: 'Raddisson Hotel JFK Airport',
-    imageUrl: 'assets/images/radisson.PNG',
+    name: 'TWA Hotel',
+    imageUrl: 'assets/images/twa.PNG',
     position: { lat: 28.625293, lng: 79.817926 },
     draggable: false
   },
   {
     id: uuidv4(),
-    name: 'Raddisson Hotel JFK Airport',
-    imageUrl: 'assets/images/radisson.PNG',
+    name: 'Jamaica Center- no Shuttle',
+    imageUrl: 'assets/images/jamaica.PNG',
     position: { lat: 28.625182, lng: 79.81464 },
     draggable: true
   }

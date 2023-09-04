@@ -1,0 +1,71 @@
+@import '../../../../../assets/mixins/UI_mixins';
+.parking_list {
+  @include displayFlex(space-between, center);
+  border-bottom: 0.02rem solid $light_grey;
+
+  .image_and_details {
+    @include displayFlex(space-between, start);
+
+    .image {
+      min-height: 12rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .details {
+      margin-left: 2.8rem;
+
+      .name {
+        p {
+          @include fontStyle($black, 1.6rem, 600)
+        }
+      }
+
+      .rating {
+        @include displayFlex(none, center);
+
+        .text {
+          margin-left: 0.6rem;
+          p {
+            span {
+              @include fontStyle($black, 1rem, 500);
+            }
+          }
+        }
+      }
+
+      .parking_type {
+        p {
+          mat-icon {
+            height: 1.2rem;
+            width: 1.4rem;
+            @include fontStyle($black, 1.45rem, 600);
+          }
+        }
+      }
+
+      .distance {
+        p {
+          mat-icon {
+            transform: rotate(90deg);
+            height: 1.2rem;
+            width: 1.4rem;
+            @include fontStyle($black, 1.45rem, 600);
+          }
+        }
+      }
+
+      .availibity {
+        p {
+          mat-icon {
+            height: 1.3rem;
+            width: 1.3rem;
+            @include fontStyle($black, 1.3rem, 600);
+            margin-bottom: -0.4rem;
+          }
+        }
+      }
+
+    }
+  }
+}

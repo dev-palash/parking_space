@@ -3,6 +3,7 @@
   padding: 0 1.6rem;
   height: calc(100vh - 10rem);
   @include displayFlex(space-between, center);
+  flex-wrap: wrap;
   // @media (min-width: 1921px) {
   //   width: 115rem;
   //   margin: 0 auto;
@@ -11,6 +12,7 @@
   // overflow-x: hidden;
   .parking{
     height: 100%;
+    width: calc(50% - 2rem);
    .image{
     height: 6rem;
     width: 6rem;
@@ -24,6 +26,6 @@
     width: 50%;
     height: 100%;
     margin-left: 1rem;
-    margin-top: 1.9rem;
+    // margin-top: 1.9rem;
   }
 }

@@ -48,13 +48,13 @@ export class LeafletComponent implements AfterViewInit {
       const data = this.parkingList[index];
       const marker = this.generateMarker(data, index);
       marker.addTo(this.map).bindPopup(`
-      <div style="width: 20rem">
+      <div>
       <div  style="display: flex; justify-content: center">
         <div style="height: 5.5rem; width: auto">
           <img style="height: 100%" src="${data.imageUrl}" />
         </div>
         <div class="details">
-          <div style="font-weight: 600; font-size: 1.5rem; white-space: nowrap">
+          <div style="font-weight: 600; font-size: 3.5rem; ">
             <p class="m-0"> ${data.name} </p>
           </div>
           <div class="rating">
@@ -70,9 +70,19 @@ export class LeafletComponent implements AfterViewInit {
       </div>
     </div>
     <div class="btn_price">
-    <button mat-raised-button style="background-color: #EA2769; border: none; height: 3rem; width: 100%; color: white;">Park Here</button>
+    <button id='parking_btn' mat-raised-button style="background-color: #EA2769; border: none; height: 3rem; width: 100%; color: white;">Park Here</button>
   </div>
-      `);
+      `,{
+        maxWidth: 560,
+        maxHeight: 560,
+        closeButton: true
+      }).on('popupopen', ()=>{
+       let btn =  document.getElementById('parking_btn') as HTMLElement;
+       btn.onclick = function(){
+        // alert('clicked');
+       }
+      })
+      ;
       this.map.panTo(data.position);
       this.markers.push(marker)
     }

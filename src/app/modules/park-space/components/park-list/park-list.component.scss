@@ -343,9 +343,9 @@
     transform: translateY(10px);
 }
 
-  .mat-mdc-form-field-subscript-wrapper {
-    z-index: -1;
-  }
+  // .mat-mdc-form-field-subscript-wrapper {
+  //   z-index: -1;
+  // }
 }
 
 .mat-form-field-appearance-fill .mat-mdc-select-arrow-wrapper {
@@ -354,4 +354,7 @@
 
 :host ::ng-deep .mdc-text-field--filled .mdc-floating-label--float-above {
   transform: translateY(-41%) scale(0.75);
+}
+.mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-floating-label, .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-floating-label--float-above{
+color: red !important;
 }

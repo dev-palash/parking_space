@@ -33,14 +33,14 @@
       Now!</p>
   </div>
   <div class="list_section">
-    <div class="parking_list" *ngFor="let parking of parkingList">
+    <div class="parking_list" *ngFor="let parking of parkingList; index as i">
       <div class="image_and_details">
         <div class="image">
           <img [src]="parking.imageUrl" />
         </div>
         <div class="details">
           <div class="name">
-            <p class="m-0"> {{parking.name}} </p>
+            <p class="m-0" appHighlighter> {{parking.name}} </p>
           </div>
           <div class="rating">
             <div class="stars">
@@ -69,7 +69,7 @@
           </div>
         </div>
         <div class="btn_price">
-          <button mat-raised-button color="primary">Park Here</button>
+          <button mat-raised-button color="primary" (click)="goToDetails(parking)">Park Here</button>
         </div>
         <div class="cancellation">
           <p class="m-0"><mat-icon>check</mat-icon> Free Cancellation</p>

@@ -9,13 +9,15 @@ import { FormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { LeafletComponent } from './components/leaflet/leaflet.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { ParkingDetailsComponent } from './pages/parking-details/parking-details.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
     ParkListComponent,
-    LeafletComponent
+    LeafletComponent,
+    ParkingDetailsComponent
   ],
   imports: [
     CommonModule,

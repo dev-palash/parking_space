@@ -1,0 +1,53 @@
+<div class="book_parking">
+  <div class="price_title">
+    <mat-icon mat-button mat-dialog-close>close</mat-icon>
+    <p class="m-0"> Select Parking Times and Parking Types </p>
+  </div>
+  <div class="first_step" [ngClass]="checkInTime && checkoutTime ? 'first_step' : 'first_step_disable' ">
+    <div class="list_order">
+      <p class="m-0">1</p>
+    </div>
+    <div class="txt">
+      <p class="m-0">Parking Times</p>
+      <p class="m-0">Select your parking check-in and check-out times</p>
+    </div>
+  </div>
+  <div class="dates">
+    <div class="start_date">
+      <label>Check-in</label>
+      <ngx-timepicker-field
+      [(ngModel)] = "checkInTime"
+      (timeChanged)="checkTime()"
+      ></ngx-timepicker-field>
+    </div>
+    <div class="end_date">
+      <label>Check-out</label>
+      <ngx-timepicker-field
+      [(ngModel)] = "checkoutTime"
+      >
+
+      </ngx-timepicker-field>
+    </div>
+    <div class="btn_price">
+      <button [disabled]="!checkInTime || !checkoutTime" mat-raised-button color="primary">Continue</button>
+    </div>
+  </div>
+  <div class="second_step" [ngClass]="selectedValue ? 'second_step' : 'second_step_disable' ">
+    <div class="list_order">
+      <p class="m-0">2</p>
+    </div>
+    <div class="txt">
+      <p class="m-0">Parking type</p>
+    </div>
+  </div>
+<div class="parking_type">
+  <mat-form-field class="">
+    <mat-label>Sort By</mat-label>
+    <mat-select [(ngModel)]="selectedValue" name="food">
+      <mat-option *ngFor="let food of foods" [value]="food.value">
+        {{food.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+</div>

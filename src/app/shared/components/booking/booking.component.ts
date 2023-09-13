@@ -1,27 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { Parking } from 'src/app/modules/park-space/models/parking.model';
+import { DataService } from 'src/app/modules/park-space/services/data.service';
 import { StarRatingColor } from 'src/app/shared/components/star-rating/star-rating.component';
-import { DataService } from '../../services/data.service';
-import { Parking } from '../../models/parking.model';
-import { MatDialog } from '@angular/material/dialog';
-import { BookingComponent } from 'src/app/shared/components/booking/booking.component';
 
 @Component({
-  selector: 'app-parking-details',
-  templateUrl: './parking-details.component.html',
-  styleUrls: ['./parking-details.component.scss']
+  selector: 'app-booking',
+  templateUrl: './booking.component.html',
+  styleUrls: ['./booking.component.scss']
 })
-export class ParkingDetailsComponent {
+export class BookingComponent implements OnInit, AfterViewInit {
   parking: any;
   minDate!: string | number | Date;
   minEndDate!: NgbDateStruct;
   parkingList: Parking[] = [];
+  picker: any;
+  checkInTime: any;
+  checkoutTime: any;
   constructor(
     private router: Router,
-    private dataService: DataService,
-    private dialogRef: MatDialog
+    private dataService: DataService
     ){
    this.parking = this.router.getCurrentNavigation()?.extras?.state?.['parking'];
    this.parkingList = [...this.dataService.getParkingList()];
@@ -32,11 +32,26 @@ export class ParkingDetailsComponent {
   starColor:StarRatingColor = StarRatingColor.accent;
   starColorP:StarRatingColor = StarRatingColor.primary;
   starColorW:StarRatingColor = StarRatingColor.warn;
+  selectedValue: string = '';
+  foods: any = [
+    {value: 'steak-0', viewValue: 'Steak'},
+    {value: 'pizza-1', viewValue: 'Pizza'},
+    {value: 'tacos-2', viewValue: 'Tacos'},
+  ];
   form!: FormGroup;
+  ngOnInit(): void {
+      // alert(this.checkInTime);
+  }
+  ngAfterViewInit(): void {
+    // alert(this.checkInTime);
+  }
   initForm(){
     this.form = new FormGroup({
       start_date: new FormControl("", [Validators.required])
     })
+  }
+  checkTime(){
+    alert(this.checkInTime);
   }
   validateDates() {
 		const startDate = this.form.get('start_date')?.value;
@@ -57,10 +72,5 @@ export class ParkingDetailsComponent {
 	  }
     onRatingChanged(rating: any){
       this.rating = rating;
-    }
-    openBookingModal(){
-      this.dialogRef.open(BookingComponent,{
-        // width: '480px'
-      })
     }
 }

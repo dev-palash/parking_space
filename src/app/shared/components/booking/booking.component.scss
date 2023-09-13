@@ -1,0 +1,196 @@
+@import '../../../../assets/mixins/UI_mixins';
+@import '../../../../assets/color/colors';
+.book_parking{
+  height: max-content;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 0 0 2rem 0;
+  .price_title{
+    position: relative;
+    mat-icon{
+      position: absolute;
+      left: 0.2rem;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    @include displayFlex(center, center);
+    background-color: $black_ash;
+    color: $white;
+    padding: 0.6rem 1.5rem;
+    p{
+      @include fontStyle($light_grey, 1.02rem, 400);
+      span{
+        @include fontStyle($white, 1.2rem, 500);
+      }
+    }
+  }
+  .first_step{
+    @include displayFlex(start, center);
+    padding-left: 1.6rem;
+    .list_order{
+      border: 1px solid $dark-grey;
+      background-color: $black_ash;
+      height: 2rem;
+      width: 2rem;
+      border-radius: 50%;
+      @include displayFlex(center, center);
+      @include fontStyle($white, 1.1rem, 500);
+    }
+   .txt{
+    padding: 0.76rem 0 0 0.8rem;
+    p{
+      &:first-child{
+        @include fontStyle($black_ash, 1.4rem, 500);
+      }
+      @include fontStyle($black_ash, 0.9rem, 400);
+    }
+   }
+  }
+  .first_step_disable{
+    @include displayFlex(start, center);
+    padding-left: 1.6rem;
+    .list_order{
+      border: 1px solid $grey;
+      background-color: $grey;
+      height: 2rem;
+      width: 2rem;
+      border-radius: 50%;
+      @include displayFlex(center, center);
+      @include fontStyle($white, 1.1rem, 500);
+    }
+   .txt{
+    padding: 0.76rem 0 0 0.8rem;
+    p{
+      &:first-child{
+        @include fontStyle($grey, 1.4rem, 500);
+      }
+      @include fontStyle($grey, 0.9rem, 400);
+    }
+   }
+  }
+  .dates{
+    @include displayFlex(center, center);
+    padding: 1rem 1.5rem;
+    .start_date{
+      position: relative;
+      // width: 10rem;
+      label{
+        margin-left: 0.68rem;
+        @include fontStyle($black_ash, 0.8rem, 400);
+      }
+      mat-icon{
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-9%);
+      }
+    }
+    .end_date{
+      position: relative;
+      // width: 10rem;
+      label{
+        margin-left: 0.68rem;
+        @include fontStyle($black_ash, 0.8rem, 400);
+      }
+      mat-icon{
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-9%);
+      }
+    }
+  }
+  .btn_price{
+    margin: 1.4rem 0 0 1rem;
+    button{
+      padding: 0 2rem;
+    }
+  }
+  .second_step{
+    @include displayFlex(start, center);
+    padding-left: 1.6rem;
+    .list_order{
+      border: 1px solid $dark-grey;
+      background-color: $black_ash;
+      height: 2rem;
+      width: 2rem;
+      border-radius: 50%;
+      @include displayFlex(center, center);
+      @include fontStyle($white, 1.1rem, 500);
+    }
+   .txt{
+    padding: 0.76rem 0 0 0.8rem;
+    p{
+      &:first-child{
+        @include fontStyle($black_ash, 1.4rem, 500);
+      }
+      @include fontStyle($black_ash, 0.9rem, 400);
+    }
+   }
+  }
+  .second_step_disable{
+    @include displayFlex(start, center);
+    padding-left: 1.6rem;
+    .list_order{
+      border: 1px solid $grey;
+      background-color: $grey;
+      height: 2rem;
+      width: 2rem;
+      border-radius: 50%;
+      @include displayFlex(center, center);
+      @include fontStyle($white, 1.1rem, 500);
+    }
+   .txt{
+    padding: 0.76rem 0 0 0.8rem;
+    p{
+      &:first-child{
+        @include fontStyle($grey, 1.4rem, 500);
+      }
+      @include fontStyle($grey, 0.9rem, 400);
+    }
+   }
+  }
+  .parking_type{
+    margin-left: 3.15rem;
+  }
+}
+
+//   :host ::ng-deep .timepicker-overlay{
+//     z-index: 9999999 !important;
+//   }
+//   :host ::ng-deep .timepicker-backdrop-overlay{
+//       .timepicker-overlay {
+//         position: fixed;
+//         top: 0;
+//         left: 0;
+//         width: 100%;
+//         height: 100%;
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         z-index: 999999 !important;
+//         pointer-events: none;
+//     }
+
+// }
+// :host ::ng-deep ngx-material-timepicker-container{
+//   .timepicker-backdrop-overlay{
+//     .timepicker-overlay {
+//       position: fixed;
+//       top: 0;
+//       left: 0;
+//       width: 100%;
+//       height: 100%;
+//       display: flex;
+//       justify-content: center;
+//       align-items: center;
+//       z-index: 999999 !important;
+//       pointer-events: none;
+//   }
+
+//   }
+// }
+
+::ng-deep .timepicker-overlay{
+  z-index: 9999 !important;
+}
+

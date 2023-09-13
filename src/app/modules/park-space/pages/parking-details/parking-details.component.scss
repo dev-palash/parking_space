@@ -1,71 +1,336 @@
 @import '../../../../../assets/mixins/UI_mixins';
-.parking_list {
-  @include displayFlex(space-between, center);
-  border-bottom: 0.02rem solid $light_grey;
+@import '../../../../../assets/color/colors';
 
-  .image_and_details {
-    @include displayFlex(space-between, start);
+.details_main{
+  @include displayFlex(center, start);
+  .detail{
+    width: 60%;
+    .parking_list {
+      @include displayFlex(space-between, center);
+      border-bottom: 0.02rem solid $light_grey;
 
-    .image {
-      min-height: 12rem;
-      display: flex;
-      align-items: center;
-    }
+      .image_and_details {
+        @include displayFlex(space-between, start);
 
-    .details {
-      margin-left: 2.8rem;
+        .image {
+          min-height: 12rem;
+          display: flex;
+          align-items: center;
+        }
 
-      .name {
-        p {
-          @include fontStyle($black, 1.6rem, 600)
+        .details {
+          margin-left: 2.8rem;
+
+          .name {
+            p {
+              @include fontStyle($black, 1.6rem, 600)
+            }
+          }
+
+          .rating {
+            @include displayFlex(none, center);
+
+            .text {
+              margin-left: 0.6rem;
+
+              p {
+                @include fontStyle($black, 1rem, 500);
+
+                span {
+                  @include fontStyle($sky_blue, 1rem, 500);
+                }
+              }
+            }
+          }
+
+          .meta {
+            @include displayFlex(space-between, center);
+            .meta_first {
+              .parking_type {
+                p {
+                  mat-icon {
+                    height: 1.2rem;
+                    width: 1.4rem;
+                    @include fontStyle($black, 1.45rem, 600);
+                  }
+                }
+              }
+              .distance {
+                p {
+                  mat-icon {
+                    transform: rotate(90deg);
+                    height: 1.2rem;
+                    width: 1.4rem;
+                    @include fontStyle($black, 1.45rem, 600);
+                  }
+                }
+              }
+            }
+
+
+            .meta_second {
+              .shuttle {
+                p {
+                  mat-icon {
+                    height: 1.2rem;
+                    width: 1.4rem;
+                    @include fontStyle($black, 1.45rem, 600);
+                  }
+                }
+              }
+              .availibity {
+                p {
+                  mat-icon {
+                    height: 1.3rem;
+                    width: 1.3rem;
+                    @include fontStyle($black, 1.3rem, 600);
+                    margin-bottom: -0.4rem;
+                  }
+                }
+              }
+            }
+          }
+
         }
       }
+    }
+    .announce{
+      background-color: $navy_blue;
+      padding: 1rem 2rem;
+      // width: max-content;
+      margin: 2rem;
+      border-radius: 1rem;
+      @include displayFlex(center, center);
+      .left{
+        display: flex;
+        align-items: center;
+        color: $white;
+      }
+      .right{
+        p{
+          margin: 0 0 0 2rem;
+        }
+        p, ul{
+          @include fontStyle($white, 0.76rem, 400);
+        }
+      }
+    }
+    .tabs{
+      .overview_tab{
+        @include displayFlex(start, center);
+        .carousel{
+          margin-right: 3rem;
+          margin: 2rem 3rem 0 3rem;
+        }
+        .rating{
+          .rating_txt{
+            @include fontStyle($sky_blue, 1rem, 400);
+          }
+        }
+      }
+    }
+  }
+  .book_and_others{
+    width: 30%;
+    .book_parking{
+      height: max-content;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      padding: 0 0 2rem 0;
+      .price_title{
+        @include displayFlex(space-between, center);
+        background-color: $black_ash;
+        color: $white;
+        padding: 0.6rem 1.5rem;
+        p{
+          @include fontStyle($light_grey, 0.7rem, 400);
+          span{
+            @include fontStyle($white, 1.2rem, 500);
+          }
+        }
+      }
+      .dates{
+        @include displayFlex(space-between, center);
+        padding: 1rem 1.5rem;
+        .start_date{
+          position: relative;
+          width: 10rem;
+          label{
+            margin-left: 0.68rem;
+            @include fontStyle($black_ash, 0.8rem, 400);
+          }
+          mat-icon{
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-9%);
+          }
+        }
+        .end_date{
+          position: relative;
+          width: 10rem;
+          label{
+            margin-left: 0.68rem;
+            @include fontStyle($black_ash, 0.8rem, 400);
+          }
+          mat-icon{
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-9%);
+          }
+        }
+      }
+      .btn_price{
+        @include displayFlex(center, center);
+        button{
+          padding: 1rem 7rem;
+        }
+      }
+      .cancellation {
+        text-align: center;
+        margin-top: 0.6rem;
 
-      .rating {
-        @include displayFlex(none, center);
+        p {
+          @include fontStyle($light_green, 0.9rem, 600);
 
-        .text {
-          margin-left: 0.6rem;
-          p {
-            span {
-              @include fontStyle($black, 1rem, 500);
+          mat-icon {
+            height: 1rem;
+            width: 1.2rem;
+            @include fontStyle($light_green, 1.23rem, 600);
+          }
+        }
+      }
+    }
+    .list_section {
+      .other_option{
+        text-align: center;
+        margin: 1rem 0;
+        @include fontStyle($black_ash, 1.2rem, 600);
+      }
+      .parking_list {
+        @include displayFlex(space-between, center);
+        border-bottom: 0.02rem solid $light_grey;
+        margin-bottom: 1rem;
+
+        .image_and_details {
+          @include displayFlex(space-between, start);
+
+          .image {
+            min-height: 3rem;
+            display: flex;
+            align-items: center;
+          }
+
+          .details {
+
+            .name {
+              max-width: 9rem;
+              p {
+                @include fontStyle($black, 1rem, 600)
+              }
+            }
+
+            .rating {
+              @include displayFlex(none, center);
+            }
+
+            .parking_type {
+              p {
+                mat-icon {
+                  height: 1.2rem;
+                  width: 1.4rem;
+                  @include fontStyle($black, 1.45rem, 600);
+                }
+              }
+            }
+
+            .distance {
+              p {
+                mat-icon {
+                  transform: rotate(90deg);
+                  height: 1.2rem;
+                  width: 1.4rem;
+                  @include fontStyle($black, 1.45rem, 600);
+                }
+              }
+            }
+
+            .text {
+              margin-left: 0.6rem;
+              p {
+                span {
+                  @include fontStyle($black, 1rem, 500);
+                }
+              }
+            }
+
+            .availibity {
+              p {
+                mat-icon {
+                  height: 1.3rem;
+                  width: 1.3rem;
+                  @include fontStyle($black, 1.3rem, 600);
+                  margin-bottom: -0.4rem;
+                }
+              }
+            }
+
+          }
+        }
+
+        .price {
+          .price_value {
+            margin-bottom: 2rem;
+
+            .number {
+              p {
+                @include fontStyle($primary, 1rem, 500);
+
+                sup {
+                  @include fontStyle($black, 1rem, 500);
+                }
+
+                sub {
+                  @include fontStyle($black, 1rem, 500);
+                  top: 0.6rem;
+                  right: 1rem;
+                }
+
+                sup {
+                  top: -0.9rem;
+                }
+              }
+            }
+          }
+
+          .btn_price {
+            width: 9.5rem;
+            height: 3rem;
+
+            button {
+              width: 100%;
+              height: 100%;
+            }
+          }
+
+          .cancellation {
+            text-align: right;
+            margin-top: 0.6rem;
+
+            p {
+              @include fontStyle($light_green, 0.9rem, 600);
+
+              mat-icon {
+                height: 1rem;
+                width: 1.2rem;
+                @include fontStyle($light_green, 1.23rem, 600);
+              }
             }
           }
         }
       }
-
-      .parking_type {
-        p {
-          mat-icon {
-            height: 1.2rem;
-            width: 1.4rem;
-            @include fontStyle($black, 1.45rem, 600);
-          }
-        }
-      }
-
-      .distance {
-        p {
-          mat-icon {
-            transform: rotate(90deg);
-            height: 1.2rem;
-            width: 1.4rem;
-            @include fontStyle($black, 1.45rem, 600);
-          }
-        }
-      }
-
-      .availibity {
-        p {
-          mat-icon {
-            height: 1.3rem;
-            width: 1.3rem;
-            @include fontStyle($black, 1.3rem, 600);
-            margin-bottom: -0.4rem;
-          }
-        }
-      }
-
     }
   }
+
 }
+

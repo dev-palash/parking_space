@@ -1,30 +1,151 @@
-<div class="parking_list">
-  <div class="image_and_details">
-    <div class="image">
-      <img [src]="parking.imageUrl" />
+<div class="details_main">
+  <div class="detail">
+    <div class="parking_list">
+      <div class="image_and_details">
+        <div class="image">
+          <img [src]="parking.imageUrl" />
+        </div>
+        <div class="details">
+          <div class="name">
+            <p class="m-0" appHighlighter> {{parking.name}} </p>
+          </div>
+          <div class="rating">
+            <div class="stars">
+              <mat-star-rating [rating]="rating" [starCount]="starCount" [color]="starColor"></mat-star-rating>
+            </div>
+            <div class="text">
+              <p class="m-0">Great <span>(958 Ratings) </span> | <span>135-30 140th st, Jamaica, New york, US
+                  11436</span></p>
+            </div>
+          </div>
+          <div class="meta">
+            <div class="meta_first">
+              <div class="parking_type">
+                <p class="m-0"><mat-icon> directions_car</mat-icon> Parking Types: Vallete Uncovered</p>
+              </div>
+              <div class="distance">
+                <p class="m-0"><mat-icon>airplanemode_active</mat-icon> 1 miles to JFK</p>
+              </div>
+            </div>
+            <div class="meta_second">
+              <div class="shuttle">
+                <p class="m-0"><mat-icon> directions_bus</mat-icon> Free Shuttle</p>
+              </div>
+              <div class="availibity">
+                <p class="m-0"><mat-icon>access_time</mat-icon> open 24/7 </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="details">
-      <div class="name">
-        <p class="m-0" appHighlighter> {{parking.name}} </p>
+    <div class="announce">
+      <div class="left">
+        <mat-icon>warning</mat-icon>
       </div>
-      <div class="rating">
-        <div class="stars">
-          <mat-star-rating [rating]="rating" [starCount]="starCount" [color]="starColor"
-            ></mat-star-rating>
+      <div class="right">
+        <P>Announcement from {{parking.name}}: </P>
+        <ul>
+          <li>Shuttle runs daily from 5:00am - 11:00 pm</li>
+          <li>Customers who need airport transportation outside of these hours will have to arrange their own rides at
+            their expense.</li>
+          <li>Please be prepared to show your Reservation Receipt at the valet podium</li>
+          <li>Please arrive at least 30 min ahead to be checked in at the parking lot</li>
+          <li> PLEASE NOTE: OVERSIZED VEHICLES WILL BE CHARGED AN EXTRA $10 PER DAY OF PARKING. PAY AT THE LOT</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tabs">
+      <mat-tab-group>
+        <mat-tab label="Overview">
+          <div class="overview_tab">
+            <div class="carousel">
+              <p class="m-0">Overview</p>
+              <app-caroucel [srcArr]="srcArr"></app-caroucel>
+            </div>
+            <div class="rating">
+              <p class="m-0">Overall Rating</p>
+              <p class="m-0 rating_txt">
+                Great <br>
+                4.0 / 5
+              </p>
+              <mat-star-rating [rating]="rating" [starCount]="starCount" [color]="starColor"></mat-star-rating>
+              <p class="m-0">(Based on 956 ratings)</p>
+            </div>
+          </div>
+        </mat-tab>
+        <mat-tab label="Amenities"> Content 2 </mat-tab>
+        <mat-tab label="Location"> Content 3 </mat-tab>
+        <mat-tab label="Details"> Content 4 </mat-tab>
+        <mat-tab label="Reviews"> Content 5</mat-tab>
+      </mat-tab-group>
+
+    </div>
+  </div>
+  <div class="book_and_others">
+    <div class="book_parking">
+      <div class="price_title">
+        <p class="m-0">Starting from</p>
+        <p class="m-0"> <span>$25.99</span> per day </p>
+      </div>
+      <div class="dates">
+        <div class="start_date">
+          <label>Check-in</label>
+          <input class="form-control" placeholder="yyyy-mm-dd" (click)="d1.toggle()" formControlName="start_date"
+            ngbDatepicker #d1="ngbDatepicker" (change)="validateDates()" />
+            <mat-icon>calendar_today</mat-icon>
         </div>
-        <div class="text">
-          <p class="m-0"><span>Great </span>(958 Ratings)</p>
+        <div class="end_date">
+          <label>Check-out</label>
+          <input class="form-control" placeholder="yyyy-mm-dd" (click)="d1.toggle()" formControlName="start_date"
+            ngbDatepicker #d1="ngbDatepicker" (change)="validateDates()" />
+            <mat-icon>calendar_today</mat-icon>
         </div>
       </div>
-      <div class="parking_type">
-        <p class="m-0"><mat-icon> directions_car</mat-icon> Parking Types: Vallete Uncovered</p>
+      <div class="btn_price">
+        <button mat-raised-button color="primary" (click)="openBookingModal()">Reserve Parking</button>
       </div>
-      <div class="distance">
-        <p class="m-0"><mat-icon>airplanemode_active</mat-icon> 1 miles to JFK</p>
+      <div class="cancellation">
+        <p class="m-0"><mat-icon>check</mat-icon> Free Cancellation</p>
       </div>
-      <div class="availibity">
-        <p class="m-0"><mat-icon>access_time</mat-icon> open 24/7 </p>
+    </div>
+    <div class="list_section">
+      <p class="other_option" >Other Popular JFK Parking Options</p>
+      <div class="parking_list" *ngFor="let parking of parkingList; index as i">
+        <div class="image_and_details">
+          <div class="image">
+            <img [src]="parking.imageUrl" />
+          </div>
+          <div class="details">
+            <div class="name">
+              <p class="m-0" appHighlighter> {{parking.name}} </p>
+            </div>
+            <div class="rating">
+              <div class="stars">
+                <mat-star-rating [rating]="rating" [starCount]="starCount" [color]="starColor"
+                  (ratingUpdated)="onRatingChanged($event)"></mat-star-rating>
+              </div>
+            </div>
+            <div class="distance">
+              <p class="m-0"><mat-icon>airplanemode_active</mat-icon> 1 miles to JFK</p>
+            </div>
+            <div class="text">
+              <p class="m-0"><span>Great </span>(958 Ratings)</p>
+            </div>
+          </div>
+        </div>
+        <div class="price">
+          <div class="price_value">
+            <div class="number">
+              <p class="m-0">$25</p>
+              <p class="m-0">per day</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
+<ng-template #content1>
+  content 1 in ng-template
+</ng-template>

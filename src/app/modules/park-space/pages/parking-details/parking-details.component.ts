@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
@@ -13,7 +13,7 @@ import { BookingComponent } from 'src/app/shared/components/booking/booking.comp
   templateUrl: './parking-details.component.html',
   styleUrls: ['./parking-details.component.scss']
 })
-export class ParkingDetailsComponent {
+export class ParkingDetailsComponent implements OnInit {
   parking: any;
   minDate!: string | number | Date;
   minEndDate!: NgbDateStruct;
@@ -32,14 +32,18 @@ export class ParkingDetailsComponent {
   starColor:StarRatingColor = StarRatingColor.accent;
   starColorP:StarRatingColor = StarRatingColor.primary;
   starColorW:StarRatingColor = StarRatingColor.warn;
-  form!: FormGroup;
+  bookForm!: FormGroup;
+  ngOnInit(): void {
+      this.initForm();
+  }
   initForm(){
-    this.form = new FormGroup({
-      start_date: new FormControl("", [Validators.required])
+    this.bookForm = new FormGroup({
+      start_date: new FormControl("", [Validators.required]),
+      end_date: new FormControl('', [Validators.required])
     })
   }
   validateDates() {
-		const startDate = this.form.get('start_date')?.value;
+		const startDate = this.bookForm.get('start_date')?.value;
 		if (startDate) {
           const endDateObj = new Date(startDate);
 		  const startDateObj = new Date(this.minDate);
@@ -61,6 +65,10 @@ export class ParkingDetailsComponent {
     openBookingModal(){
       this.dialogRef.open(BookingComponent,{
         // width: '480px'
+        data:{
+          checkIn: this.bookForm.get('start_date')?.value,
+          checkOut: this.bookForm.get('end_date')?.value
+        }
       })
     }
 }

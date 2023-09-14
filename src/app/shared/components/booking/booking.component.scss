@@ -8,7 +8,7 @@
     position: relative;
     mat-icon{
       position: absolute;
-      left: 0.2rem;
+      left: 0.6rem;
       top: 50%;
       transform: translateY(-50%);
     }
@@ -34,6 +34,11 @@
       border-radius: 50%;
       @include displayFlex(center, center);
       @include fontStyle($white, 1.1rem, 500);
+    }
+    .check_icon{
+      height: 2.3rem;
+      width: 2.3rem;
+      @include fontStyle($green, 2.3rem, 500);
     }
    .txt{
     padding: 0.76rem 0 0 0.8rem;
@@ -103,6 +108,15 @@
     margin: 1.4rem 0 0 1rem;
     button{
       padding: 0 2rem;
+    }
+    .btn_edit{
+      background-color: $white;
+      border: 1px solid $primary;
+      @include fontStyle($primary, 1rem, 400);
+      &:hover{
+        background-color: $primary;
+      @include fontStyle($white, 1rem, 400);
+      }
     }
   }
   .second_step{

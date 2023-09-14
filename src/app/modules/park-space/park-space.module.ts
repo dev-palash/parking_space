@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { LOCALE_ID, NgModule } from '@angular/core';
+import { CommonModule, registerLocaleData } from '@angular/common';
 
 import { ParkSpaceRoutingModule } from './park-space-routing.module';
 import { HomeComponent } from './pages/home/home.component';
@@ -12,8 +12,9 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { ParkingDetailsComponent } from './pages/parking-details/parking-details.component';
 import { NgbModalWindow } from '@ng-bootstrap/ng-bootstrap/modal/modal-window';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import localeFr from '@angular/common/locales/fr';
 
-
+registerLocaleData(localeFr, 'fr');
 @NgModule({
   declarations: [
     HomeComponent,
@@ -31,6 +32,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NgbModule,
     FormsModule,
     ReactiveFormsModule
+  ],
+  providers:[
+    {
+      provide: LOCALE_ID, useValue: 'fr-FR'
+    }
   ]
 })
 export class ParkSpaceModule { }

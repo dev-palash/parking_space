@@ -89,19 +89,24 @@
         <p class="m-0"> <span>$25.99</span> per day </p>
       </div>
       <div class="dates">
+
         <div class="start_date">
-          <label>Check-in</label>
-          <input class="form-control" placeholder="yyyy-mm-dd" (click)="d1.toggle()" formControlName="start_date"
+          <form [formGroup]="bookForm">
+            <label>Check-in</label>
+            <input class="form-control" placeholder="yyyy-mm-dd" (click)="d1.toggle()" formControlName="start_date"
             ngbDatepicker #d1="ngbDatepicker" (change)="validateDates()" />
-            <mat-icon>calendar_today</mat-icon>
+          </form>
+            <mat-icon>date_range</mat-icon>
+          </div>
+          <div class="end_date">
+            <form [formGroup]="bookForm">
+              <label>Check-out</label>
+              <input class="form-control" placeholder="yyyy-mm-dd" (click)="d2.toggle()" formControlName="end_date"
+              ngbDatepicker #d2="ngbDatepicker" (change)="validateDates()" />
+            </form>
+            <mat-icon>date_range</mat-icon>
+          </div>
         </div>
-        <div class="end_date">
-          <label>Check-out</label>
-          <input class="form-control" placeholder="yyyy-mm-dd" (click)="d1.toggle()" formControlName="start_date"
-            ngbDatepicker #d1="ngbDatepicker" (change)="validateDates()" />
-            <mat-icon>calendar_today</mat-icon>
-        </div>
-      </div>
       <div class="btn_price">
         <button mat-raised-button color="primary" (click)="openBookingModal()">Reserve Parking</button>
       </div>

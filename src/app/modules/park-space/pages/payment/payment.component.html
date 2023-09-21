@@ -1,0 +1,87 @@
+<div class="steps">
+  <div class="first_step">
+    <div class="stepper">
+      <div *ngIf="true"  class="list_order">
+        <p class="m-0">1</p>
+      </div>
+      <ng-container *ngIf="false">
+        <mat-icon class="check_icon">check_circle</mat-icon>
+      </ng-container>
+      <div class="txt">
+        <p class="m-0">Guest Deails</p>
+      </div>
+    </div>
+    <div class="step_details">
+      <div class="email_input">
+        <form>
+          <label>Email</label>
+          <input type="email" />
+        </form>
+      </div>
+      <div class="check_box">
+        <input type="checkbox"/>
+        <label>Get discounts and latest updates via email</label>
+      </div>
+      <p class="signin_instruct">Sign in for faser checkout</p>
+      <div class="btn_step" >
+        <button  mat-raised-button color="primary"> Continue </button>
+      </div>
+    </div>
+  </div>
+  <div class="second_step">
+    <div class="stepper">
+      <div *ngIf="true"  class="list_order">
+        <p class="m-0">2</p>
+      </div>
+      <ng-container *ngIf="false">
+        <mat-icon class="check_icon">check_circle</mat-icon>
+      </ng-container>
+      <div class="txt">
+        <p class="m-0">Guest Deails</p>
+      </div>
+    </div>
+    <div class="step_details">
+      <form>
+        <div class="name_container">
+          <div class="first_name">
+            <label>First name on card</label>
+            <input type="text" />
+          </div>
+          <div class="last_name">
+            <label>Last name on card</label>
+            <input type="text" />
+          </div>
+        </div>
+        <div class="zipcode">
+          <label>Zipcode</label>
+            <input type="text" />
+        </div>
+        <div class="phone">
+          <label>Phone Number</label>
+            <input type="text" />
+        </div>
+
+      </form>
+      <div class="check_box">
+        <input type="checkbox"/>
+        <label>Get discounts and latest updates via SMS</label>
+      </div>
+      <p class="driver_name_instruction">Add driver's name (optional)</p>
+      <div class="card_btn">
+        <button> <mat-icon>credit_card</mat-icon> Card</button>
+      </div>
+      <div class="paypal_btn">
+        <button>
+          <img src="assets/images/paypal.svg"/>
+          Paypal</button>
+      </div>
+      <div class="price_and_terms">
+        <p class="m-0">Pay <span>$203.8</span> today</p>
+        <p class="m-0">By selecting 'Complete Reservation' you agree to our <u>Terms of Use</u> and <u>Privacy Policy</u></p>
+      </div>
+      <div class="btn_checkout_step" >
+        <button  mat-raised-button color="primary"> Complete Reservation </button>
+      </div>
+    </div>
+  </div>
+</div>

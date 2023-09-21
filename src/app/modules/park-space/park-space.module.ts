@@ -13,14 +13,16 @@ import { ParkingDetailsComponent } from './pages/parking-details/parking-details
 import { NgbModalWindow } from '@ng-bootstrap/ng-bootstrap/modal/modal-window';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import localeFr from '@angular/common/locales/fr';
-
+import { StarRatingModule } from 'angular-star-rating';
+import { PaymentComponent } from './pages/payment/payment.component';
 registerLocaleData(localeFr, 'fr');
 @NgModule({
   declarations: [
     HomeComponent,
     ParkListComponent,
     LeafletComponent,
-    ParkingDetailsComponent
+    ParkingDetailsComponent,
+    PaymentComponent
   ],
   imports: [
     CommonModule,
@@ -31,7 +33,9 @@ registerLocaleData(localeFr, 'fr');
     LeafletModule,
     NgbModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StarRatingModule.forRoot()
+
   ],
   providers:[
     {

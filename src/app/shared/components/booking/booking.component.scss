@@ -85,7 +85,7 @@
           @include fontStyle($grey, 1.4rem, 500);
         }
 
-        @include fontStyle($grey, 0.9rem, 400);
+        @include fontStyle($grey, 0.7rem, 400);
       }
     }
   }
@@ -130,7 +130,7 @@
   }
 
   .btn_price {
-    margin: 1.4rem 0 0 1rem;
+    margin: 1.4rem 1rem 0 1rem;
 
     button {
       padding: 0 2rem;
@@ -204,6 +204,9 @@
 
   .parking_type {
     margin-left: 3.15rem;
+  }
+  .checkout_btn{
+    text-align: center;
   }
 }
 

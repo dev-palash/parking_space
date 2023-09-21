@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { Parking } from 'src/app/modules/park-space/models/parking.model';
@@ -30,7 +30,8 @@ export class BookingComponent implements OnInit, AfterViewInit {
   constructor(
     private router: Router,
     private dataService: DataService,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private dialogRef: MatDialogRef<BookingComponent>
     ){
    this.parking = this.router.getCurrentNavigation()?.extras?.state?.['parking'];
    this.parkingList = [...this.dataService.getParkingList()];
@@ -67,8 +68,8 @@ export class BookingComponent implements OnInit, AfterViewInit {
     })
   }
   onContinue(){
-    this.parkingTimeFilled = true;
-    this.parkingTimeDescription = `Check-in: ${this.checkInDay}, ${this.checkInMonth}, ${this.data.checkIn.year} @ ${this.checkInTime}`;
+    this.parkingTimeFilled = !this.parkingTimeFilled;
+    this.parkingTimeDescription = !this.parkingTimeFilled ? 'Select your parking check-in and check-out times' : `Check-in: ${this.checkInDay}, ${this.checkInMonth} ${this.data.checkIn.day}  @ ${this.checkInTime} Check-out: ${this.checkOutday}, ${this.checkOutMonth} ${this.data.checkOut.day}  @ ${this.checkoutTime}`;
   }
   checkTime(){
     // alert(this.checkInTime);
@@ -92,6 +93,10 @@ export class BookingComponent implements OnInit, AfterViewInit {
 	  }
     onRatingChanged(rating: any){
       this.rating = rating;
+    }
+    gotoPayment() {
+      this.dialogRef.close();
+      this.router.navigate(['park-space/payment']);
     }
 
     getDayNameFromDate(dateString: string) {

@@ -14,8 +14,12 @@
       <p class="m-0">Parking Times</p>
       <p class="m-0"> {{parkingTimeDescription}} </p>
     </div>
+    <ng-container *ngIf="parkingTimeFilled">
+      <ng-container *ngTemplateOutlet="myBtn"></ng-container>
+    </ng-container>
   </div>
   <div class="dates">
+    <ng-container *ngIf="!parkingTimeFilled">
     <div class="start_date">
       <label>Check-in</label>
       <ngx-timepicker-field
@@ -31,9 +35,8 @@
 
       </ngx-timepicker-field>
     </div>
-    <div class="btn_price">
-      <button [ngClass]=" {'btn_edit': parkingTimeFilled }" [disabled]="!checkInTime || !checkoutTime" (click)="onContinue()" mat-raised-button color="primary"> {{parkingTimeFilled ? 'Edit' : 'Continue'}} </button>
-    </div>
+      <ng-container *ngTemplateOutlet="myBtn"></ng-container>
+    </ng-container>
   </div>
   <div class="second_step" [ngClass]="selectedValue ? 'second_step' : 'second_step_disable' ">
     <div class="list_order">
@@ -43,6 +46,7 @@
       <p class="m-0">Parking type</p>
     </div>
   </div>
+
 <div class="parking_type">
   <mat-form-field class="">
     <mat-label>Sort By</mat-label>
@@ -53,4 +57,12 @@
     </mat-select>
   </mat-form-field>
 </div>
+<div class="checkout_btn">
+  <button  mat-raised-button color="primary" (click)="gotoPayment()"> Proceed to checkout </button>
 </div>
+</div>
+<ng-template #myBtn>
+  <div class="btn_price" >
+    <button [ngClass]=" {'btn_edit': parkingTimeFilled }" [disabled]="!checkInTime || !checkoutTime" (click)="onContinue()" mat-raised-button color="primary"> {{parkingTimeFilled ? 'Edit' : 'Continue'}} </button>
+  </div>
+</ng-template>

@@ -71,23 +71,30 @@
       @include displayFlex(space-between, start);
 
       .image {
-        min-height: 12rem;
+        width: 6rem;
+        height: auto;
         display: flex;
         align-items: center;
       }
 
       .details {
         margin-left: 2.8rem;
+        // border: 1px solid black;
+        width: 20rem;
 
         .name {
           p {
             @include fontStyle($black, 1.6rem, 600)
           }
         }
-
         .rating {
-          @include displayFlex(none, center);
+          @include displayFlex(start, center);
+          margin-left: -0.25rem;
 
+          .stars{
+            // margin-left: -1rem;
+            // border: 1px solid red;
+          }
           .text {
             margin-left: 0.6rem;
             p {

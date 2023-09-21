@@ -108,7 +108,7 @@
           </div>
         </div>
       <div class="btn_price">
-        <button mat-raised-button color="primary" (click)="openBookingModal()">Reserve Parking</button>
+        <button [disabled]="!bookForm.get('start_date')?.value || !bookForm.get('end_date')?.value" mat-raised-button color="primary" (click)="openBookingModal()">Reserve Parking</button>
       </div>
       <div class="cancellation">
         <p class="m-0"><mat-icon>check</mat-icon> Free Cancellation</p>

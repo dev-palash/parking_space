@@ -36,6 +36,19 @@ export class ParkingDetailsComponent implements OnInit {
   ngOnInit(): void {
       this.initForm();
   }
+   getDayNameFromDate(dateString: string) {
+    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const date = new Date(dateString);
+
+    if (isNaN(date.getTime())) {
+      return 'Invalid Date';
+    }
+
+    const dayNumber = date.getDay();
+    return daysOfWeek[dayNumber];
+  }
+
+
   initForm(){
     this.bookForm = new FormGroup({
       start_date: new FormControl("", [Validators.required]),
@@ -43,9 +56,11 @@ export class ParkingDetailsComponent implements OnInit {
     })
   }
   validateDates() {
+    debugger;
 		const startDate = this.bookForm.get('start_date')?.value;
+    alert(startDate);
 		if (startDate) {
-          const endDateObj = new Date(startDate);
+      const endDateObj = new Date(startDate);
 		  const startDateObj = new Date(this.minDate);
 		  if(startDateObj < endDateObj){
 			 this.minEndDate=this.convertDateToNgbDate(endDateObj);
@@ -53,6 +68,7 @@ export class ParkingDetailsComponent implements OnInit {
 	  }
 	}
   private convertDateToNgbDate(date: Date): NgbDateStruct {
+    debugger;
 		return {
 		  year: date.getFullYear(),
 		  month: date.getMonth() + 1,

@@ -20,6 +20,13 @@ export class BookingComponent implements OnInit, AfterViewInit {
   picker: any;
   checkInTime: any;
   checkoutTime: any;
+  monthNames: string[] = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"];
+  checkInMonth: string = '';
+  checkOutMonth: string = '';
+  dayNames: string[] = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  checkInDay: string = '';
+  checkOutday: string = '';
   constructor(
     private router: Router,
     private dataService: DataService,
@@ -28,6 +35,10 @@ export class BookingComponent implements OnInit, AfterViewInit {
    this.parking = this.router.getCurrentNavigation()?.extras?.state?.['parking'];
    this.parkingList = [...this.dataService.getParkingList()];
    console.log('dta', this.data);
+   this.checkInMonth = this.monthNames[Number(this.data.checkIn.month) - 1];
+   this.checkOutMonth = this.monthNames[Number(this.data.checkOut.month) - 1];
+   this.checkInDay = this.getDayNameFromDate(Object.values(this.data.checkIn).join('-'));
+   this.checkOutday = this.getDayNameFromDate(Object.values(this.data.checkOut).join('-'));
   }
   srcArr=['assets/images/hotelImg1.jpg', 'assets/images/hotelImg2.jpg', 'assets/images/hotelImg3.jpg']
   rating:number = 3;
@@ -57,7 +68,7 @@ export class BookingComponent implements OnInit, AfterViewInit {
   }
   onContinue(){
     this.parkingTimeFilled = true;
-    this.parkingTimeDescription = '';
+    this.parkingTimeDescription = `Check-in: ${this.checkInDay}, ${this.checkInMonth}, ${this.data.checkIn.year} @ ${this.checkInTime}`;
   }
   checkTime(){
     // alert(this.checkInTime);
@@ -81,5 +92,17 @@ export class BookingComponent implements OnInit, AfterViewInit {
 	  }
     onRatingChanged(rating: any){
       this.rating = rating;
+    }
+
+    getDayNameFromDate(dateString: string) {
+      const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      const date = new Date(dateString);
+
+      if (isNaN(date.getTime())) {
+        return 'Invalid Date';
+      }
+
+      const dayNumber = date.getDay();
+      return daysOfWeek[dayNumber];
     }
 }

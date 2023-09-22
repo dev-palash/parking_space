@@ -56,7 +56,6 @@ export class ParkingDetailsComponent implements OnInit {
     })
   }
   validateDates() {
-    debugger;
 		const startDate = this.bookForm.get('start_date')?.value;
     alert(startDate);
 		if (startDate) {
@@ -68,7 +67,6 @@ export class ParkingDetailsComponent implements OnInit {
 	  }
 	}
   private convertDateToNgbDate(date: Date): NgbDateStruct {
-    debugger;
 		return {
 		  year: date.getFullYear(),
 		  month: date.getMonth() + 1,
@@ -83,7 +81,8 @@ export class ParkingDetailsComponent implements OnInit {
         // width: '480px'
         data:{
           checkIn: this.bookForm.get('start_date')?.value,
-          checkOut: this.bookForm.get('end_date')?.value
+          checkOut: this.bookForm.get('end_date')?.value,
+          hotel: this.parking.name
         }
       })
     }

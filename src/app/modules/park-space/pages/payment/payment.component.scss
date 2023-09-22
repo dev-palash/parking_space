@@ -1,199 +1,360 @@
 @import '../../../../../assets/mixins/UI_mixins';
 @import '../../../../../assets/color/colors';
-.steps{
-  .first_step{
-    border-bottom: 0.01rem solid $grey;
-    padding-bottom: 0.5rem;
-    .stepper {
-      @include displayFlex(start, center);
-      padding-left: 1.6rem;
+.payment{
+  @include displayFlex(center, start);
+  background-color: $light_whity_grey;
+  .steps{
+    background-color: $white;
+    padding: 0 1.6rem;
+    margin: 1rem 0;
+    .first_step{
+      border-bottom: 0.01rem solid $grey;
+      padding-bottom: 0.5rem;
+      .stepper {
+        @include displayFlex(start, center);
+        // padding-left: 1.6rem;
+        padding-top: 0.76rem;
+        padding-bottom: 0.5rem;
+        .list_order {
+          border: 1px solid $dark-grey;
+          background-color: $black_ash;
+          height: 2rem;
+          width: 2rem;
+          border-radius: 50%;
+          @include displayFlex(center, center);
+          @include fontStyle($white, 1.1rem, 500);
+        }
 
-      .list_order {
-        border: 1px solid $dark-grey;
-        background-color: $black_ash;
-        height: 2rem;
-        width: 2rem;
-        border-radius: 50%;
-        @include displayFlex(center, center);
-        @include fontStyle($white, 1.1rem, 500);
-      }
+        .check_icon {
+          height: 2.3rem;
+          width: 2.3rem;
+          @include fontStyle($green, 2.3rem, 500);
+        }
 
-      .check_icon {
-        height: 2.3rem;
-        width: 2.3rem;
-        @include fontStyle($green, 2.3rem, 500);
-      }
+        .txt {
+          padding: 0 0 0 0.8rem;
 
-      .txt {
-        padding: 0.76rem 0 0 0.8rem;
+          p {
+            &:first-child {
+              @include fontStyle($black_ash, 1.4rem, 500);
+            }
 
-        p {
-          &:first-child {
-            @include fontStyle($black_ash, 1.4rem, 500);
+            @include fontStyle($black_ash, 0.9rem, 400);
           }
-
-          @include fontStyle($black_ash, 0.9rem, 400);
+        }
+      }
+      .step_details{
+        .email_input{
+          position: relative;
+          width: 25rem;
+          // padding-left: 1.6rem;
+          label{
+            @include fontStyle($black_ash, 0.99rem, 400);
+            margin-left: 0.25rem;
+          }
+          input{
+            width: 100%;
+            height: 3rem;
+            border: 0.01rem solid $grey;
+            padding-left: 0.25rem;
+            &::placeholder{
+            @include fontStyle($grey, 0.99rem, 400);
+            }
+          }
+        }
+        .check_box{
+          // padding-left: 1.6rem;
+          label{
+            margin-left: 0.68rem;
+            @include fontStyle($black_ash, 0.8rem, 400);
+          }
+        }
+        .signin_instruct{
+          margin-left: 1.6rem;
+          margin-top: 2rem;
+          @include fontStyle($sky_blue, 0.95rem, 400);
+          cursor: pointer;
+        }
+        .btn_step{
+          text-align: end;
         }
       }
     }
-    .step_details{
-      .email_input{
-        position: relative;
-        width: 25rem;
-        padding-left: 1.6rem;
-        label{
-          margin-left: 0.68rem;
-          @include fontStyle($black_ash, 0.8rem, 400);
+    .second_step{
+      border-bottom: 0.01rem solid $grey;
+      padding-bottom: 0.5rem;
+      .stepper {
+        @include displayFlex(start, center);
+        // padding-left: 1.6rem;
+        padding-top: 0.76rem;
+        padding-bottom: 0.5rem;
+        .list_order {
+          border: 1px solid $dark-grey;
+          background-color: $black_ash;
+          height: 2rem;
+          width: 2rem;
+          border-radius: 50%;
+          @include displayFlex(center, center);
+          @include fontStyle($white, 1.1rem, 500);
         }
-        input{
-          width: 100%;
-          height: 3rem;
+
+        .check_icon {
+          height: 2.3rem;
+          width: 2.3rem;
+          @include fontStyle($green, 2.3rem, 500);
+        }
+
+        .txt {
+          padding: 0 0 0 0.8rem;
+
+          p {
+            &:first-child {
+              @include fontStyle($black_ash, 1.4rem, 500);
+            }
+
+            @include fontStyle($black_ash, 0.9rem, 400);
+          }
         }
       }
-      .check_box{
-        padding-left: 1.6rem;
-        label{
-          margin-left: 0.68rem;
-          @include fontStyle($black_ash, 0.8rem, 400);
+      .step_details{
+        .name_container{
+          @include displayFlex(start, center);
+          .first_name, .last_name{
+            position: relative;
+            width: 15rem;
+            // padding-left: 1.6rem;
+            label{
+              // margin-left: 0.68rem;
+              @include fontStyle($black_ash, 1rem, 400);
+            }
+            input{
+              width: 100%;
+              height: 2.2rem;
+              border: 0.01rem solid $grey;
+              padding-left: 0.25rem;
+            &::placeholder{
+            @include fontStyle($grey, 0.99rem, 400);
+            }
+            }
+          }
+          .last_name{
+            padding-left: 1.6rem;
+          }
         }
-      }
-      .signin_instruct{
-        margin-left: 1.6rem;
-        margin-top: 2rem;
-        @include fontStyle($sky_blue, 0.95rem, 400);
-        cursor: pointer;
-      }
-      .btn_step{
-        text-align: end;
+        .zipcode{
+            position: relative;
+            width: 15rem;
+            // padding-left: 1.6rem;
+            margin-top: 1.2rem;
+            label{
+              // margin-left: 0.68rem;
+              @include fontStyle($black_ash, 1rem, 400);
+            }
+            input{
+              width: 100%;
+              height: 2.2rem;
+              border: 0.01rem solid $grey;
+              padding-left: 0.25rem;
+            &::placeholder{
+            @include fontStyle($grey, 0.99rem, 400);
+            }
+            }
+        }
+        .phone{
+            position: relative;
+            width: 15rem;
+            // padding-left: 1.6rem;
+            margin-top: 1.2rem;
+            label{
+              // margin-left: 0.68rem;
+              @include fontStyle($black_ash, 1rem, 400);
+            }
+            input{
+              width: 100%;
+              height: 2.2rem;
+              border: 0.01rem solid $grey;
+              padding-left: 0.25rem;
+            &::placeholder{
+            @include fontStyle($grey, 0.99rem, 400);
+            }
+            }
+        }
+        .check_box{
+          // padding-left: 1.6rem;
+          label{
+            margin-left: 0.68rem;
+            @include fontStyle($black_ash, 0.8rem, 400);
+          }
+        }
+        .driver_name_instruction{
+          // margin-left: 1.6rem;
+          margin-top: 2rem;
+          @include fontStyle($sky_blue, 0.95rem, 400);
+          cursor: pointer;
+        }
+        .paypal_btn, .card_btn{
+          height: 2.8rem;
+          width: 20rem;
+          // margin-left: 1.6rem;
+          mat-icon{
+            height: 1.25rem;
+          }
+          button{
+            height: 100%;
+            width: 100%;
+            text-align: left;
+            border: 0.01rem solid $grey;
+            background-color: $white;
+            img{
+              height: 1.25rem;
+              width: auto;
+            }
+          }
+        }
+        .price_and_terms{
+          text-align: end;
+          padding: 1rem 0.6rem 1rem 0;
+          p{
+            @include fontStyle($black_ash, 0.75rem, 500);
+            span{
+              @include fontStyle($primary, 0.75rem, 500);
+            }
+          }
+        }
+
+        .btn_checkout_step{
+          // padding-left: 1.6rem;
+          button{
+            width: 100%;
+          }
+        }
+        .cancellation {
+          @include displayFlex(start, center);
+          margin-top: 0.6rem;
+          margin-left: 2.6rem;
+
+          p {
+            @include fontStyle($light_green, 0.9rem, 600);
+            margin: 0 1rem 0 0;
+            mat-icon {
+              height: 1rem;
+              width: 1.2rem;
+              @include fontStyle($light_green, 1.23rem, 600);
+            }
+          }
+        }
       }
     }
   }
-  .second_step{
-    border-bottom: 0.01rem solid $grey;
-    padding-bottom: 0.5rem;
-    .stepper {
-      @include displayFlex(start, center);
-      padding-left: 1.6rem;
-
-      .list_order {
-        border: 1px solid $dark-grey;
+  .order_details{
+    background-color: $light_whity_grey;
+    .order_summary{
+      width: 26rem;
+      margin: 1rem 2rem;
+      background-color: $white;
+      .title{
+        height: 3.8rem;
+        width: 100%;
         background-color: $black_ash;
-        height: 2rem;
-        width: 2rem;
-        border-radius: 50%;
         @include displayFlex(center, center);
-        @include fontStyle($white, 1.1rem, 500);
+        p{
+          @include fontStyle($white, 1.2rem, 500);
+        }
       }
-
-      .check_icon {
-        height: 2.3rem;
-        width: 2.3rem;
-        @include fontStyle($green, 2.3rem, 500);
-      }
-
-      .txt {
-        padding: 0.76rem 0 0 0.8rem;
-
-        p {
-          &:first-child {
-            @include fontStyle($black_ash, 1.4rem, 500);
+      .booking_details{
+        padding: 2rem 1rem 1rem 1.5rem;
+        border-bottom: 0.01rem solid $grey;
+        p:first-child{
+          @include fontStyle($black, 1.1rem, 600);
+        }
+        p{
+          @include fontStyle($black_ash, 1rem, 400);
+        }
+        .duration{
+          @include displayFlex(space-between, center);
+          p{
+            @include fontStyle($black_ash, 1rem, 400);
           }
-
-          @include fontStyle($black_ash, 0.9rem, 400);
+          p:last-child{
+            @include fontStyle($sky_blue, 1rem, 400);
+          }
+        }
+      }
+      .billing{
+        padding: 2rem 1rem 1rem 1.5rem;
+        border-bottom: 0.01rem solid $grey;
+        .subtotal, .service_charge, .taxes, .total{
+          @include displayFlex(space-between, center);
+          margin-bottom: 0.5rem;
+        }
+        .taxes{
+          padding-bottom: 0.5rem;
+          border-bottom: 0.01rem solid $grey;
+        }
+        .total{
+          p{
+            @include fontStyle($black, 1rem, 600);
+          }
+        }
+      }
+      .pay{
+        padding: 2rem 1rem 1rem 1.5rem;
+        border-bottom: 0.01rem solid $grey;
+        @include displayFlex(space-between, center);
+        p{
+          @include fontStyle($primary, 1.1rem, 600);
+        }
+      }
+      .coupon_code{
+        padding: 1rem 1rem 1rem 1.5rem;
+        border-bottom: 0.01rem solid $grey;
+        p{
+          @include fontStyle($sky_blue, 1rem, 500);
         }
       }
     }
-    .step_details{
-      .name_container{
-        @include displayFlex(start, center);
-        .first_name, .last_name{
-          position: relative;
-          width: 15rem;
-          padding-left: 1.6rem;
-          label{
-            // margin-left: 0.68rem;
-            @include fontStyle($black_ash, 1rem, 400);
-          }
-          input{
-            width: 100%;
-            height: 2.2rem;
-          }
-        }
+  }
+  .pros{
+    width: 26rem;
+    margin-left: 2rem;
+    background-color: $white;
+    padding: 0.5rem;
+    p {
+      @include fontStyle($light_green, 0.9rem, 600);
+      margin: 0 1rem 0 0;
+      mat-icon {
+        height: 1rem;
+        width: 1.2rem;
+        @include fontStyle($light_green, 1.23rem, 600);
       }
-      .zipcode{
-        position: relative;
-          width: 15rem;
-          padding-left: 1.6rem;
-          label{
-            // margin-left: 0.68rem;
-            @include fontStyle($black_ash, 1rem, 400);
-          }
-          input{
-            width: 100%;
-            height: 2.2rem;
-          }
+    }
+  }
+  .star_rating{
+    margin-left: 2rem;
+    margin-top: 1.5rem;
+    padding-left: 0.5rem;
+    .name{
+      @include displayFlex(start, center);
+      p{
+        margin-top: 0.5rem;
       }
-      .phone{
-        position: relative;
-          width: 15rem;
-          padding-left: 1.6rem;
-          label{
-            // margin-left: 0.68rem;
-            @include fontStyle($black_ash, 1rem, 400);
-          }
-          input{
-            width: 100%;
-            height: 2.2rem;
-          }
-      }
-      .check_box{
-        padding-left: 1.6rem;
-        label{
-          margin-left: 0.68rem;
-          @include fontStyle($black_ash, 0.8rem, 400);
-        }
-      }
-      .driver_name_instruction{
-        margin-left: 1.6rem;
-        margin-top: 2rem;
-        @include fontStyle($sky_blue, 0.95rem, 400);
-        cursor: pointer;
-      }
-      .paypal_btn, .card_btn{
-        height: 2.8rem;
-        width: 20rem;
-        margin-left: 1.6rem;
+    }
+    .rating{
+      @include displayFlex(start, center);
+      text-align: start;
+      .star_logo:not(:last-child){
+        background-color: $light_green;
+        margin-right: 0.2rem;
         mat-icon{
+          color: $white;
           height: 1.25rem;
         }
-        button{
-          height: 100%;
-          width: 100%;
-          text-align: left;
-          border: 0.01rem solid $grey;
-          background-color: $white;
-          img{
-            height: 1.25rem;
-            width: auto;
-          }
-        }
       }
-      .price_and_terms{
-        text-align: end;
-        padding-right: 0.6rem;
-        padding-bottom: 1rem;
-        p{
-          @include fontStyle($black_ash, 0.75rem, 500);
-          span{
-            @include fontStyle($primary, 0.75rem, 500);
-          }
-        }
-      }
-
-      .btn_checkout_step{
-        padding-left: 1.6rem;
-        button{
-          width: 100%;
+      .star_logo:last-child{
+        background-color: $grey;
+        mat-icon{
+          color: $white;
+          height: 1.25rem;
         }
       }
     }

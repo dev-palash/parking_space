@@ -27,6 +27,7 @@ export class BookingComponent implements OnInit, AfterViewInit {
   dayNames: string[] = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   checkInDay: string = '';
   checkOutday: string = '';
+  hotel: string = '';
   constructor(
     private router: Router,
     private dataService: DataService,
@@ -96,7 +97,18 @@ export class BookingComponent implements OnInit, AfterViewInit {
     }
     gotoPayment() {
       this.dialogRef.close();
-      this.router.navigate(['park-space/payment']);
+      const obj = {
+        checkinDay: this.checkInDay,
+        checkinDateDay: this.data.checkIn.day,
+        checkinMonth: this.checkInMonth,
+        checkinTime: this.checkInTime,
+        checkoutDay: this.checkOutday,
+        checkoutDateDay: this.data.checkOut.day,
+        checkoutMonth: this.checkOutMonth,
+        checkoutTime: this.checkoutTime,
+
+      }
+      this.router.navigate(['park-space/payment'], {state: {bookingData: obj, hotel: this.data.hotel}});
     }
 
     getDayNameFromDate(dateString: string) {

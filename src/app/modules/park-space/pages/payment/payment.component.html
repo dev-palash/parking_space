@@ -1,87 +1,158 @@
-<div class="steps">
-  <div class="first_step">
-    <div class="stepper">
-      <div *ngIf="true"  class="list_order">
-        <p class="m-0">1</p>
+<section class="payment">
+  <div class="steps">
+    <div class="first_step">
+      <div class="stepper">
+        <div *ngIf="true" class="list_order">
+          <p class="m-0">1</p>
+        </div>
+        <ng-container *ngIf="false">
+          <mat-icon class="check_icon">check_circle</mat-icon>
+        </ng-container>
+        <div class="txt">
+          <p class="m-0">Guest Deails</p>
+        </div>
       </div>
-      <ng-container *ngIf="false">
-        <mat-icon class="check_icon">check_circle</mat-icon>
-      </ng-container>
-      <div class="txt">
-        <p class="m-0">Guest Deails</p>
+      <div class="step_details">
+        <div class="email_input">
+          <form>
+            <label>Email</label>
+            <input type="email" placeholder="Enter Email" />
+          </form>
+        </div>
+        <div class="check_box">
+          <input type="checkbox" />
+          <label>Get discounts and latest updates via email</label>
+        </div>
+        <p class="signin_instruct">Sign in for faser checkout</p>
+        <div class="btn_step">
+          <button mat-raised-button color="primary"> Continue </button>
+        </div>
       </div>
     </div>
-    <div class="step_details">
-      <div class="email_input">
+    <div class="second_step">
+      <div class="stepper">
+        <div *ngIf="true" class="list_order">
+          <p class="m-0">2</p>
+        </div>
+        <ng-container *ngIf="false">
+          <mat-icon class="check_icon">check_circle</mat-icon>
+        </ng-container>
+        <div class="txt">
+          <p class="m-0">Payment Method</p>
+        </div>
+      </div>
+      <div class="step_details">
         <form>
-          <label>Email</label>
-          <input type="email" />
-        </form>
-      </div>
-      <div class="check_box">
-        <input type="checkbox"/>
-        <label>Get discounts and latest updates via email</label>
-      </div>
-      <p class="signin_instruct">Sign in for faser checkout</p>
-      <div class="btn_step" >
-        <button  mat-raised-button color="primary"> Continue </button>
-      </div>
-    </div>
-  </div>
-  <div class="second_step">
-    <div class="stepper">
-      <div *ngIf="true"  class="list_order">
-        <p class="m-0">2</p>
-      </div>
-      <ng-container *ngIf="false">
-        <mat-icon class="check_icon">check_circle</mat-icon>
-      </ng-container>
-      <div class="txt">
-        <p class="m-0">Guest Deails</p>
-      </div>
-    </div>
-    <div class="step_details">
-      <form>
-        <div class="name_container">
-          <div class="first_name">
-            <label>First name on card</label>
-            <input type="text" />
+          <div class="name_container">
+            <div class="first_name">
+              <label>First name on card</label>
+              <input type="text" placeholder="Enter first name" />
+            </div>
+            <div class="last_name">
+              <label>Last name on card</label>
+              <input type="text" placeholder="Enter last name" />
+            </div>
           </div>
-          <div class="last_name">
-            <label>Last name on card</label>
-            <input type="text" />
+          <div class="zipcode">
+            <label>Zipcode</label>
+            <input type="text" placeholder="Enter zipcode" />
           </div>
-        </div>
-        <div class="zipcode">
-          <label>Zipcode</label>
-            <input type="text" />
-        </div>
-        <div class="phone">
-          <label>Phone Number</label>
-            <input type="text" />
-        </div>
+          <div class="phone">
+            <label>Phone Number</label>
+            <input type="text" placeholder="Enter phone number" />
+          </div>
 
-      </form>
-      <div class="check_box">
-        <input type="checkbox"/>
-        <label>Get discounts and latest updates via SMS</label>
-      </div>
-      <p class="driver_name_instruction">Add driver's name (optional)</p>
-      <div class="card_btn">
-        <button> <mat-icon>credit_card</mat-icon> Card</button>
-      </div>
-      <div class="paypal_btn">
-        <button>
-          <img src="assets/images/paypal.svg"/>
-          Paypal</button>
-      </div>
-      <div class="price_and_terms">
-        <p class="m-0">Pay <span>$203.8</span> today</p>
-        <p class="m-0">By selecting 'Complete Reservation' you agree to our <u>Terms of Use</u> and <u>Privacy Policy</u></p>
-      </div>
-      <div class="btn_checkout_step" >
-        <button  mat-raised-button color="primary"> Complete Reservation </button>
+        </form>
+        <div class="check_box">
+          <input type="checkbox" />
+          <label>Get discounts and latest updates via SMS</label>
+        </div>
+        <p class="driver_name_instruction">Add driver's name (optional)</p>
+        <div class="card_btn">
+          <button> <mat-icon>credit_card</mat-icon> Card</button>
+        </div>
+        <div class="paypal_btn">
+          <button>
+            <img src="assets/images/paypal.svg" />
+            Paypal</button>
+        </div>
+        <div class="price_and_terms">
+          <p class="m-0">Pay <span>$203.8</span> today</p>
+          <p class="m-0">By selecting 'Complete Reservation' you agree to our <u>Terms of Use</u> and <u>Privacy
+              Policy</u></p>
+        </div>
+        <div class="btn_checkout_step">
+          <button mat-raised-button color="primary" (click)="payWithRazor()"> Complete Reservation </button>
+        </div>
+        <div class="cancellation">
+          <p><mat-icon>check</mat-icon> Free Cancellation</p>
+          <p class="m-0"><mat-icon>check</mat-icon> Secure SSL Encryption Payment</p>
+        </div>
       </div>
     </div>
   </div>
-</div>
+  <div class="order_details">
+    <div class="order_summary">
+      <div class="title">
+        <p class="m-0">Order Summary</p>
+      </div>
+      <div class="booking_details">
+        <p class="m-0">{{hotel}}</p>
+        <p class="m-0">Check-in: {{orderData?.checkinDay}}, {{orderData?.checkinMonth}} {{orderData?.checkinDateDay}} </p>
+        <p class="m-0">Check-out: {{orderData?.checkoutDay}}, {{orderData?.checkoutMonth}} {{orderData?.checkoutDateDay}}
+        </p>
+        <div class="duration">
+          <p>7 days of parking <sup>i</sup></p>
+          <p>Edit Times</p>
+        </div>
+      </div>
+      <div class="billing">
+        <div class="subtotal">
+          <p class="m-0">Subtotal</p>
+          <p class="m-0">$181.93</p>
+        </div>
+        <div class="service_charge">
+          <p class="m-0">Service Charge</p>
+          <p class="m-0">$11.9</p>
+        </div>
+        <div class="taxes">
+          <p class="m-0">Taxes & Fees</p>
+          <p class="m-0">$18.93</p>
+        </div>
+        <div class="total">
+          <p class="m-0">Total</p>
+          <p class="m-0">$240</p>
+        </div>
+      </div>
+      <div class="pay">
+        <p class="m-0">Pay Now</p>
+        <p class="m-0">$240</p>
+      </div>
+      <div class="coupon_code">
+        <p class="m-0">Have a coupon code?</p>
+      </div>
+    </div>
+    <div class="pros">
+      <p><mat-icon>check</mat-icon> Free Cancellation</p>
+      <p class="m-0"><mat-icon>check</mat-icon> Secure SSL Encryption Payment</p>
+      <p class="m-0"><mat-icon>check</mat-icon> Dedicated Customer Service Team to Help</p>
+    </div>
+    <div class="star_rating">
+      <div class="name">
+        <mat-icon>star</mat-icon>
+        <p class="m-0">Trustpilot</p>
+      </div>
+      <div class="rating">
+        <ng-container *ngFor="let item of [1,2,3,4,5]">
+          <div class="star_logo">
+            <mat-icon>star</mat-icon>
+          </div>
+        </ng-container>
+      </div>
+      <div class="meta">
+        <p class="m-0">TrustScore <b>4.2</b></p>
+        <p class="m-0"><b>36,243</b> reviews </p>
+      </div>
+    </div>
+  </div>
+</section>

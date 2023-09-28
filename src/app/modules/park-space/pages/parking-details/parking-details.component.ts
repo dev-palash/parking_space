@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDateStruct, NgbDatepickerConfig } from '@ng-bootstrap/ng-bootstrap';
 import { StarRatingColor } from 'src/app/shared/components/star-rating/star-rating.component';
 import { DataService } from '../../services/data.service';
 import { Parking } from '../../models/parking.model';
 import { MatDialog } from '@angular/material/dialog';
 import { BookingComponent } from 'src/app/shared/components/booking/booking.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-parking-details',
@@ -21,10 +22,17 @@ export class ParkingDetailsComponent implements OnInit {
   constructor(
     private router: Router,
     private dataService: DataService,
-    private dialogRef: MatDialog
+    private dialogRef: MatDialog,
+    private config: NgbDatepickerConfig,
+    private snackBar: MatSnackBar
     ){
    this.parking = this.router.getCurrentNavigation()?.extras?.state?.['parking'];
    this.parkingList = [...this.dataService.getParkingList()];
+   const current = new Date();
+   config.minDate = { year: current.getFullYear(), month:
+   current.getMonth() + 1, day: current.getDate() };
+     //config.maxDate = { year: 2099, month: 12, day: 31 };
+   config.outsideDays = 'hidden';
   }
   srcArr=['assets/images/hotelImg1.jpg', 'assets/images/hotelImg2.jpg', 'assets/images/hotelImg3.jpg']
   rating:number = 3;
@@ -56,13 +64,19 @@ export class ParkingDetailsComponent implements OnInit {
     })
   }
   validateDates() {
+    debugger;
 		const startDate = this.bookForm.get('start_date')?.value;
-    alert(startDate);
+    const endDate = this.bookForm.get('end_date')?.value;
 		if (startDate) {
-      const endDateObj = new Date(startDate);
-		  const startDateObj = new Date(this.minDate);
-		  if(startDateObj < endDateObj){
-			 this.minEndDate=this.convertDateToNgbDate(endDateObj);
+      const endDateObj = new Date(Object.values(endDate).join('-'));
+		  const startDateObj = new Date(Object.values(startDate).join('-'));
+		  if(startDateObj > endDateObj){
+       const message = 'checkin date should be older than the checkout date'
+       this.snackBar.open(message,'Close',{
+        panelClass: ['green-snackbar', 'login-snackbar']
+       })
+       this.bookForm.get('end_date')?.setValue('');
+       return;
 		  }
 	  }
 	}

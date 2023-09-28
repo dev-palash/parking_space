@@ -1,35 +1,50 @@
-<div class="">
+
+<div class="home_container">
   <div class="filter_section">
     <div class="email_container">
       <div class="email_inner">
-        <mat-icon>email</mat-icon> <p class="m-0">Email Search Results</p>
+        <mat-icon>email</mat-icon>
+        <p class="m-0">Email Search Results</p>
       </div>
     </div>
     <div class="sort_container">
       <div class="parking_type custom_mat_bordered_select_sort">
-          <mat-form-field class="">
+        <!-- <mat-form-field class="">
             <mat-label>Filter Parking Types</mat-label>
             <mat-select class="custom_mat_select" [(ngModel)]="selectedValue" name="food">
               <mat-option *ngFor="let food of foods" [value]="food.value">
                 {{food.viewValue}}
               </mat-option>
             </mat-select>
-          </mat-form-field>
+          </mat-form-field> -->
+        <select class="form-select" aria-label="Default select example">
+          <option hidden selected value=""><span class="select_placeholder">Filter Parking Types</span></option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
       </div>
       <div class="sort_by custom_mat_bordered_select_sort">
-          <mat-form-field class="">
-            <mat-label>Sort By</mat-label>
-            <mat-select [(ngModel)]="selectedValue" name="food">
-              <mat-option *ngFor="let food of foods" [value]="food.value">
-                {{food.viewValue}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
+        <!-- <mat-form-field class="">
+          <mat-label>Sort By</mat-label>
+          <mat-select [(ngModel)]="selectedValue" name="food">
+            <mat-option *ngFor="let food of foods" [value]="food.value">
+              {{food.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field> -->
+        <select class="form-select" aria-label="Default select example">
+          <option hidden selected><span class="select_placeholder">Sort By</span></option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
       </div>
     </div>
   </div>
   <div class="sort_result">
-    <p class="m-0"><span>11 places to park available.</span> Your parking dates are popular - 1 place to park is sold out. Book
+    <p class="m-0"><span>11 places to park available.</span> Your parking dates are popular - 1 place to park is sold
+      out. Book
       Now!</p>
   </div>
   <div class="list_section">
@@ -46,7 +61,7 @@
             <div class="stars">
               <!-- <mat-star-rating [rating]="rating" [starCount]="starCount" [color]="starColor"
                 (ratingUpdated)="onRatingChanged($event)"></mat-star-rating> -->
-                <star-rating [starType]="'svg'" [readOnly]="true" [rating]="2.63" [showHalfStars]="true"></star-rating>
+              <star-rating [starType]="'svg'" [readOnly]="true" [rating]="2.63" [showHalfStars]="true"></star-rating>
             </div>
             <div class="text">
               <p class="m-0"><span>Great </span>(958 Ratings)</p>

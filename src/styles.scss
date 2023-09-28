@@ -53,3 +53,28 @@ body {
   overflow: auto;
 }
 
+.green-snackbar {
+  background: rgb(65, 252, 134) !important;
+  color: rgb(221, 15, 169);
+}
+.green-snackbar button {
+  background-color: rgb(65, 252, 134);
+  color: white;
+  border: none;
+}
+.red-snackbar {
+  background: #F44336 !important;
+  background-color: #F44336 !important;
+  color: white;
+}
+.red-snackbar button {
+  background-color: #F44336;
+  color: white !important;
+  border: none;
+}
+::ng-deep .mat-mdc-snack-bar-container {
+  &.green-snackbar {
+    background: rgb(65, 252, 134) !important;
+    color: rgb(221, 15, 169);
+  }
+}

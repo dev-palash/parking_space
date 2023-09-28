@@ -1,4 +1,62 @@
 @import "../../../../../assets/mixins/UI_mixins";
+.search_banner{
+  @include displayFlex(start, center);
+  background-color: #d6d1d191;
+  .airport{
+    margin-left: 1rem;
+    .example-form {
+      min-width: 150px;
+      max-width: 500px;
+      width: 100%;
+      margin-top: 1.5rem;
+    }
+
+    .example-full-width {
+      width: 100%;
+    }
+  }
+  .dates{
+    @include displayFlex(end, center);
+    padding: 1rem 1.5rem;
+    .start_date{
+      position: relative;
+      width: 10rem;
+      label{
+        margin-left: 0.68rem;
+        @include fontStyle($black_ash, 0.8rem, 400);
+      }
+      mat-icon{
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-9%);
+        color: $black_ash;
+      }
+    }
+    .arrow{
+      margin: 1.8rem 1rem 0 1rem;
+    }
+    .end_date{
+      position: relative;
+      width: 10rem;
+      label{
+        margin-left: 0.68rem;
+        @include fontStyle($black_ash, 0.8rem, 400);
+      }
+      mat-icon{
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-9%);
+        color: $black_ash;
+      }
+    }
+  }
+  .btn_price{
+    margin-top: 1.6rem;
+  }
+}
+
 .container_outer{
   padding: 0 1.6rem;
   height: calc(100vh - 10rem);

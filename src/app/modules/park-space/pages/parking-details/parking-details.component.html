@@ -93,7 +93,7 @@
           <form [formGroup]="bookForm">
             <label>Check-in</label>
             <input class="form-control" placeholder="yyyy-mm-dd" (click)="d1.toggle()" formControlName="start_date"
-            ngbDatepicker #d1="ngbDatepicker" (change)="validateDates()" />
+            ngbDatepicker #d1="ngbDatepicker" (ngModelChange)="validateDates()" />
           </form>
             <mat-icon>date_range</mat-icon>
           </div>
@@ -101,7 +101,7 @@
             <form [formGroup]="bookForm">
               <label>Check-out</label>
               <input class="form-control" placeholder="yyyy-mm-dd" (click)="d2.toggle()" formControlName="end_date"
-              ngbDatepicker #d2="ngbDatepicker" (change)="validateDates()" />
+              ngbDatepicker #d2="ngbDatepicker" (ngModelChange)="validateDates()" />
             </form>
             <mat-icon>date_range</mat-icon>
           </div>

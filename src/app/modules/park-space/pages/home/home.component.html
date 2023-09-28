@@ -1,3 +1,46 @@
+<div class="search_banner">
+  <div class="airport">
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Departure Airport</mat-label>
+        <input type="text"
+               placeholder="Pick Airport"
+               aria-label="Number"
+               matInput
+               [formControl]="myControl"
+               [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </form>
+
+  </div>
+  <div class="dates">
+    <div class="start_date">
+      <form [formGroup]="bookForm">
+        <label>Check-in</label>
+        <input class="form-control" placeholder="yyyy-mm-dd" (click)="d1.toggle()" formControlName="start_date"
+          ngbDatepicker #d1="ngbDatepicker" (change)="validateDates()" />
+      </form>
+      <mat-icon>date_range</mat-icon>
+    </div>
+    <mat-icon class="arrow">arrow_right_alt</mat-icon>
+    <div class="end_date">
+      <form [formGroup]="bookForm">
+        <label>Check-out</label>
+        <input class="form-control" placeholder="yyyy-mm-dd" (click)="d2.toggle()" formControlName="end_date"
+          ngbDatepicker #d2="ngbDatepicker" (change)="validateDates()" />
+      </form>
+      <mat-icon>date_range</mat-icon>
+    </div>
+  </div>
+  <div class="btn_price">
+    <button mat-raised-button color="primary">Search</button>
+  </div>
+</div>
 <div class="container_outer">
   <div class="parking">
     <app-park-list></app-park-list>
